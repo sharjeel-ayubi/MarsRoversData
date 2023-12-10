@@ -6,20 +6,18 @@
 //
 
 import Foundation
+import Combine
 
-class CuriosityRepository: PhotosRepositoryProtocol {
+final class CuriosityRepository: RepositoryProtocol {
     
-    typealias NetworkRequest = CuriosityPhotosRequest
+    let networkService: NetworkService
     
-    var request: CuriosityPhotosRequest
-    
-    required init(request: CuriosityPhotosRequest) {
-        self.request = request
+    init(networkService: NetworkService = DefaultNetworkService()) {
+        self.networkService = networkService
     }
     
-    func getPhotos(page: Int) async throws -> PhotosResponse {
-        let photosResponse = try await request.getCuriosityPhotos(page: page)
-        return photosResponse
+    func getPhotos(page: Int) -> AnyPublisher<PhotosResponse, NetworkError> {
+        let request = CuriosityPhotosRequest(page: page)
+        return networkService.request(request)
     }
-    
 }

@@ -1,15 +1,15 @@
 //
-//  SpiritPhotoListView.swift
+//  PhotoListView.swift
 //  CodingChallengeVolocopter
 //
-//  Created by Sharjeel Ayubi on 08/12/2023.
+//  Created by Sharjeel Ayubi on 09/11/2023.
 //
 
 import SwiftUI
 
-struct SpiritPhotoListView: View {
+struct PhotoListView<T: BasePhotoListViewModel>: View {
     
-    @StateObject var viewModel = SpiritPhotoListViewModel()
+    @ObservedObject var viewModel: T 
     
     private let cellSpacing: CGFloat = 8
     private var cellDimension: CGFloat = 0
@@ -17,7 +17,8 @@ struct SpiritPhotoListView: View {
     
     @State private var selectedPhoto: Photo? = nil
     
-    init() {
+    init(viewModel: T) {
+        self.viewModel = viewModel
         self.cellDimension = (UIScreen.main.bounds.width/2)-cellSpacing
         self.columns = [GridItem(.fixed(cellDimension), spacing: cellSpacing),
                         GridItem(.fixed(cellDimension), spacing: cellSpacing)]
@@ -46,6 +47,7 @@ struct SpiritPhotoListView: View {
                         PhotoDetailView(photo: photo)
                             .presentationDragIndicator(.visible)
                     }
+                    
                 }
             }
             .onAppear {
@@ -59,14 +61,14 @@ struct SpiritPhotoListView: View {
     }
     
     func loadMorePhotos(isForceLoading: Bool = false) {
-        Task {
-            await viewModel.fetchPhotos(isForceLoading: isForceLoading)
-        }
+        viewModel.fetchPhotos(isForceLoading: isForceLoading)
+    }
+    
+}
+
+struct PhotoListView_Previews: PreviewProvider {
+    static var previews: some View {
+        PhotoListView(viewModel: CuriosityPhotoListViewModel())
     }
 }
 
-struct SpiritPhotoListView_Previews: PreviewProvider {
-    static var previews: some View {
-        SpiritPhotoListView()
-    }
-}

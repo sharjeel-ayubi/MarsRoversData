@@ -6,20 +6,18 @@
 //
 
 import Foundation
+import Combine
 
-class OpportunityRepository: PhotosRepositoryProtocol {
+final class OpportunityRepository: RepositoryProtocol {
     
-    typealias NetworkRequest = OpportunityPhotosRequest
+    let networkService: NetworkService
     
-    var request: OpportunityPhotosRequest
-    
-    required init(request: OpportunityPhotosRequest) {
-        self.request = request
+    init(networkService: NetworkService = DefaultNetworkService()) {
+        self.networkService = networkService
     }
     
-    func getPhotos(page: Int) async throws -> PhotosResponse {
-        let photosResponse = try await request.getOpportunityPhotos(page: page)
-        return photosResponse
+    func getPhotos(page: Int) -> AnyPublisher<PhotosResponse, NetworkError> {
+        let request = OpportunityPhotosRequest(page: page)
+        return networkService.request(request)
     }
-    
 }

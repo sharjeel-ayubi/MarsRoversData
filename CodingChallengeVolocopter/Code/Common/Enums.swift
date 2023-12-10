@@ -32,20 +32,31 @@ enum HTTPMethod: String {
     case delete = "DELETE"
 }
 
-enum NetworkError: Error {
-    case decode
-    case invalidURL
-    case noResponse
-    case unauthorised
-    case offline
-    case unknown
-
-    var customMessage: String {
-        switch self {
-        case .offline:
-            return "You are not connected to Internet"
-        default:
-            return "Something Went Wrong"
-        }
-    }
+//enum NetworkError: Error {
+//    case decode
+//    case invalidURL
+//    case noResponse
+//    case unauthorised
+//    case offline
+//    case unknown
+//
+//    var customMessage: String {
+//        switch self {
+//        case .offline:
+//            return "You are not connected to Internet"
+//        default:
+//            return "Something Went Wrong"
+//        }
+//    }
+//}
+public enum NetworkError: Error, Equatable {
+    case badURL(_ error: String)
+    case apiError(code: Int, error: String)
+    case invalidJSON(_ error: String)
+    case unauthorized(code: Int, error: String)
+    case badRequest(code: Int, error: String)
+    case serverError(code: Int, error: String)
+    case noResponse(_ error: String)
+    case unableToParseData(_ error: String)
+    case unknown(code: Int, error: String)
 }

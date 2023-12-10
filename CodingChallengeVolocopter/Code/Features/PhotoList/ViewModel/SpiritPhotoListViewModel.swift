@@ -6,38 +6,19 @@
 //
 
 import Foundation
+import Combine
 
-@MainActor
-class SpiritPhotoListViewModel: ObservableObject {
+class SpiritPhotoListViewModel: BasePhotoListViewModel {
     
     @Published var page: Int = 0
     @Published var isLoading: Bool = false
     @Published var photos: [Photo] = []
+    @Published var error: NetworkError?
     
-    var repository: any PhotosRepositoryProtocol
+    var repository: RepositoryProtocol
+    var cancellable = Set<AnyCancellable>()
     
-    init(repository: any PhotosRepositoryProtocol = SpiritRepository(request: SpiritPhotosRequest())) {
+    init(repository: RepositoryProtocol = SpiritRepository()) {
         self.repository = repository
-    }
-    
-    func fetchPhotos(isForceLoading: Bool = false) async {
-        do {
-            guard !isLoading else { return }
-            isLoading = true
-            if isForceLoading {
-                photos.removeAll()
-                page = 0
-            }
-            page += 1
-            
-            let photosResponse = try await repository.getPhotos(page: page)
-            self.photos.append(contentsOf: photosResponse.photos)
-            isLoading = false
-            
-        } catch NetworkError.offline {
-            self.isLoading = false
-        } catch {
-            self.isLoading = false
-        }
     }
 }

@@ -1,57 +1,47 @@
 //
-//  NetworkManager.swift
+//  NetworkService.swift
 //  CodingChallengeVolocopter
 //
 //  Created by Sharjeel Ayubi on 12/11/2023.
 //
 
 import Foundation
+import Combine
 
 protocol NetworkService {
-    func sendRequest<T: Decodable>(endpoint: Router, responseModel: T.Type) async throws -> T
+    var requestTimeOut: Float { get }
+    func request<T: Codable>(_ req: any DataRequest) -> AnyPublisher<T, NetworkError>
 }
 
-extension NetworkService {
-    func sendRequest<T: Decodable>(
-        endpoint: Router,
-        responseModel: T.Type
-    ) async throws -> T {
 
-        var request = URLComponents(string: endpoint.url)!
-
-        if let parameters = endpoint.parameters {
-            request.queryItems = parameters
+final class DefaultNetworkService: NetworkService {
+    public var requestTimeOut: Float = 30
+    
+    public func request<T>(_ request: any DataRequest) -> AnyPublisher<T, NetworkError> where T: Decodable, T: Encodable {
+        let sessionConfig = URLSessionConfiguration.default
+        sessionConfig.timeoutIntervalForRequest = TimeInterval(request.requestTimeOut ?? requestTimeOut)
+        
+        guard let urlRequest = request.buildRequest() else {
+            return AnyPublisher(Fail<T, NetworkError>(error: NetworkError.badURL("Invalid Url")))
         }
-
-        guard let url = request.url else { throw NetworkError.invalidURL }
-        print("URL: \(url.absoluteString)")
-        var urlRequest = URLRequest(url: url)
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.httpMethod = endpoint.method.rawValue
-
-        do {
-            let (data, response) = try await URLSession.shared.data(for: urlRequest, delegate: nil)
-            guard let response = response as? HTTPURLResponse else {
-                throw NetworkError.noResponse
-            }
-            switch response.statusCode {
-            case 200...299:
-                if let responseString = String(data: data, encoding: .utf8) {
-                    print("Response:")
-                    print(responseString)
+        print("URL: \(urlRequest.url?.absoluteString ?? "")")
+        // We use the dataTaskPublisher from the URLSession which gives us a publisher to play around with.
+        return URLSession.shared
+            .dataTaskPublisher(for: urlRequest)
+            .tryMap { output in
+                // throw an error if response is nil
+                guard output.response is HTTPURLResponse else {
+                    throw NetworkError.serverError(code: 0, error: "Server error")
                 }
-                
-                guard let decodedResponse = try? JSONDecoder().decode(responseModel, from: data) else {
-                    throw NetworkError.decode
-                }
-                return decodedResponse
-            case 401:
-                throw NetworkError.unauthorised
-            default:
-                throw NetworkError.unknown
+                print("Response:")
+                print(String(data: output.data, encoding: .utf8) ?? "")
+                return output.data
             }
-        } catch URLError.Code.notConnectedToInternet {
-            throw NetworkError.offline
-        }
+            .decode(type: T.self, decoder: JSONDecoder())
+            .mapError { error in
+                // return error if json decoding fails
+                NetworkError.invalidJSON(String(describing: error))
+            }
+            .eraseToAnyPublisher()
     }
 }

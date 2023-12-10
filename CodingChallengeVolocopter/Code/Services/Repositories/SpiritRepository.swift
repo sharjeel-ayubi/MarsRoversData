@@ -6,20 +6,18 @@
 //
 
 import Foundation
+import Combine
 
-class SpiritRepository: PhotosRepositoryProtocol {
+final class SpiritRepository: RepositoryProtocol {
     
-    typealias NetworkRequest = SpiritPhotosRequest
+    let networkService: NetworkService
     
-    var request: SpiritPhotosRequest
-    
-    required init(request: SpiritPhotosRequest) {
-        self.request = request
+    init(networkService: NetworkService = DefaultNetworkService()) {
+        self.networkService = networkService
     }
     
-    func getPhotos(page: Int) async throws -> PhotosResponse {
-        let photosResponse = try await request.getSpiritPhotos(page: page)
-        return photosResponse
+    func getPhotos(page: Int) -> AnyPublisher<PhotosResponse, NetworkError> {
+        let request = SpiritPhotosRequest(page: page)
+        return networkService.request(request)
     }
-    
 }

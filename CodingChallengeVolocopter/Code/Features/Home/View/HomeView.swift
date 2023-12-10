@@ -26,13 +26,13 @@ struct HomeView: View {
                 addTopBar()
                 switch viewModel.selectedTabIndex {
                 case 0:
-                    CuriosityPhotoListView()
+                    PhotoListView(viewModel: CuriosityPhotoListViewModel())
                 case 1:
-                    OpportunityPhotoListView()
+                    PhotoListView(viewModel: OpportunityPhotoListViewModel())
                 case 2:
-                    SpiritPhotoListView()
+                    PhotoListView(viewModel: SpiritPhotoListViewModel())
                 default:
-                    CuriosityPhotoListView()
+                    PhotoListView(viewModel: CuriosityPhotoListViewModel())
                 }
                 
             }
