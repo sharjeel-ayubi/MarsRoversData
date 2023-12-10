@@ -24,15 +24,13 @@ struct HomeView: View {
         NavigationView {
             VStack {
                 addTopBar()
-                switch viewModel.selectedTabIndex {
-                case 0:
+                switch viewModel.selectedTab {
+                case .curiosity:
                     PhotoListView(viewModel: CuriosityPhotoListViewModel())
-                case 1:
+                case .opportunity:
                     PhotoListView(viewModel: OpportunityPhotoListViewModel())
-                case 2:
+                case .spirit:
                     PhotoListView(viewModel: SpiritPhotoListViewModel())
-                default:
-                    PhotoListView(viewModel: CuriosityPhotoListViewModel())
                 }
                 
             }
@@ -54,7 +52,7 @@ struct HomeView: View {
 
 extension HomeView {
     func addTopBar() -> some View {
-        CustomTopTabBar(tabs: viewModel.tabs, tabIndex: $viewModel.selectedTabIndex)
+        CustomTopTabBar(tabs: viewModel.tabs, selectedTab: $viewModel.selectedTab)
     }
 }
 

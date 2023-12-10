@@ -9,5 +9,5 @@ import Foundation
 
 class HomeViewModel: ObservableObject {
     let tabs = Tabs.allCases
-    @Published var selectedTabIndex = 0
+    @Published var selectedTab = Tabs.curiosity
 }

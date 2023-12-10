@@ -9,14 +9,14 @@ import SwiftUI
 
 struct CustomTopTabBar: View {
     let tabs: [Tabs]
-    @Binding var tabIndex: Int
+    @Binding var selectedTab: Tabs
     
     var body: some View {
         HStack(spacing: 20) {
             Spacer()
-            ForEach(tabs.indices, id: \.self) { i in
-                TabBarButton(text: tabs[i].name, isSelected: .constant(tabIndex == i))
-                    .onTapGesture { onButtonTapped(index: i) }
+            ForEach(tabs, id: \.self) { tab in
+                TabBarButton(text: tab.name, isSelected: .constant(selectedTab == tab))
+                    .onTapGesture { onButtonTapped(tab: tab) }
             }
             Spacer()
             
@@ -24,9 +24,8 @@ struct CustomTopTabBar: View {
         .border(width: 1, edges: [.bottom], color: Color("MainColor"))
     }
     
-    private func onButtonTapped(index: Int) {
-//        withAnimation { tabIndex = index }
-        tabIndex = index
+    private func onButtonTapped(tab: Tabs) {
+        selectedTab = tab
     }
 }
 
@@ -91,6 +90,6 @@ extension View {
 
 struct CustomTopTabBar_Previews: PreviewProvider {
     static var previews: some View {
-        CustomTopTabBar(tabs: Tabs.allCases, tabIndex: .constant(1))
+        CustomTopTabBar(tabs: Tabs.allCases, selectedTab: .constant(.curiosity))
     }
 }
