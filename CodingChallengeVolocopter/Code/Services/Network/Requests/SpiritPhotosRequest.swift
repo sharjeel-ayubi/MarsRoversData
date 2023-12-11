@@ -18,6 +18,7 @@ struct SpiritPhotosRequest: DataRequest {
     typealias Response = PhotosResponse
     
     private var page: Int
+    private var filter: String
     private var path: String {
         "/spirit/photos"
     }
@@ -37,12 +38,17 @@ struct SpiritPhotosRequest: DataRequest {
     }
     
     var queryItems: [String : String] {
-        return [ParameterKeys.sol : "1000",
-                ParameterKeys.apiKey : PhotosAPI.apiKey,
-                ParameterKeys.page : String(page)]
+        var items = [ParameterKeys.sol : "1000",
+                     ParameterKeys.apiKey : PhotosAPI.apiKey,
+                     ParameterKeys.page : String(page)]
+        if !filter.isEmpty {
+            items[ParameterKeys.camera] = filter
+        }
+        return items
     }
     
-    init(page: Int) {
+    init(page: Int, filter: String) {
         self.page = page
+        self.filter = filter
     }
 }

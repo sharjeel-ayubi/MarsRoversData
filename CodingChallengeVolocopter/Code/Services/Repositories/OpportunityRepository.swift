@@ -16,8 +16,8 @@ final class OpportunityRepository: RepositoryProtocol {
         self.networkService = networkService
     }
     
-    func getPhotos(page: Int) -> AnyPublisher<PhotosResponse, NetworkError> {
-        let request = OpportunityPhotosRequest(page: page)
+    func getPhotos(page: Int, filter: String = "") -> AnyPublisher<PhotosResponse, NetworkError> {
+        let request = OpportunityPhotosRequest(page: page, filter: filter)
         return networkService.request(request)
     }
 }

@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct PhotoListView<T: BasePhotoListViewModel>: View {
+struct PhotoListView: View {
     
-    @ObservedObject var viewModel: T 
+    @ObservedObject var viewModel: PhotoListViewModel
     
     private let cellSpacing: CGFloat = 8
     private var cellDimension: CGFloat = 0
@@ -17,7 +17,7 @@ struct PhotoListView<T: BasePhotoListViewModel>: View {
     
     @State private var selectedPhoto: Photo? = nil
     
-    init(viewModel: T) {
+    init(viewModel: PhotoListViewModel) {
         self.viewModel = viewModel
         self.cellDimension = (UIScreen.main.bounds.width/2)-cellSpacing
         self.columns = [GridItem(.fixed(cellDimension), spacing: cellSpacing),
@@ -51,7 +51,7 @@ struct PhotoListView<T: BasePhotoListViewModel>: View {
                 }
             }
             .onAppear {
-                loadMorePhotos()
+                viewModel.handleOnAppear()
             }
         }
         .refreshable {
@@ -68,7 +68,7 @@ struct PhotoListView<T: BasePhotoListViewModel>: View {
 
 struct PhotoListView_Previews: PreviewProvider {
     static var previews: some View {
-        PhotoListView(viewModel: CuriosityPhotoListViewModel())
+        PhotoListView(viewModel: PhotoListViewModel(repository: CuriosityRepository()))
     }
 }
 

@@ -13,7 +13,7 @@ struct CodingChallengeVolocopterApp: App {
 
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            HomeView(viewModel: HomeViewModel())
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

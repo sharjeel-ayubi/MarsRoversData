@@ -5,11 +5,46 @@
 //  Created by Sharjeel Ayubi on 09/11/2023.
 //
 
-//MARK: - Tabs Enum
-enum Tabs: Int, CaseIterable {
-    case curiosity = 0
-    case opportunity = 1
-    case spirit = 2
+//MARK: - Rover Enums
+enum CameraType: String, CaseIterable {
+    case FHAZ
+    case RHAZ
+    case MAST
+    case CHEMCAM
+    case MAHLI
+    case MARDI
+    case NAVCAM
+    case PANCAM
+    case MINITES
+    
+    var fullname: String {
+        switch self {
+        case .FHAZ:
+            return "Front Hazard Avoidance Camera"
+        case .RHAZ:
+            return "Rear Hazard Avoidance Camera"
+        case .MAST:
+            return "Mast Camera"
+        case .CHEMCAM:
+            return "Chemistry and Camera Complex"
+        case .MAHLI:
+            return "Mars Hand Lens Imager"
+        case .MARDI:
+            return "Mars Descent Imager"
+        case .NAVCAM:
+            return "Navigation Camera"
+        case .PANCAM:
+            return "Panoramic Camera"
+        case .MINITES:
+            return "Miniature Thermal Emission Spectrometer (Mini-TES)"
+        }
+    }
+}
+
+enum RoverVehicle: String, CaseIterable {
+    case curiosity
+    case opportunity
+    case spirit
     
     var name: String {
         switch self {
@@ -19,6 +54,22 @@ enum Tabs: Int, CaseIterable {
             return "Opportunity"
         case .spirit:
             return "Spirit"
+        }
+    }
+    
+    var cameras: [CameraType] {
+        var allCameras = CameraType.allCases
+        switch self {
+        case .curiosity:
+            allCameras.removeAll { camera in
+                return camera == .PANCAM || camera == .MINITES
+            }
+            return allCameras
+        case .opportunity, .spirit:
+            allCameras.removeAll { camera in
+                return camera == .MAST || camera == .CHEMCAM || camera == .MAHLI || camera == .MARDI
+            }
+            return allCameras
         }
     }
 }
@@ -32,23 +83,6 @@ enum HTTPMethod: String {
     case delete = "DELETE"
 }
 
-//enum NetworkError: Error {
-//    case decode
-//    case invalidURL
-//    case noResponse
-//    case unauthorised
-//    case offline
-//    case unknown
-//
-//    var customMessage: String {
-//        switch self {
-//        case .offline:
-//            return "You are not connected to Internet"
-//        default:
-//            return "Something Went Wrong"
-//        }
-//    }
-//}
 public enum NetworkError: Error, Equatable {
     case badURL(_ error: String)
     case apiError(code: Int, error: String)

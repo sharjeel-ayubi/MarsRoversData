@@ -16,8 +16,7 @@ struct HomeView: View {
         animation: .default)
     private var items: FetchedResults<Item>
     
-    @StateObject var viewModel = HomeViewModel()
-    
+    @ObservedObject var viewModel: HomeViewModel
     
     var body: some View {
         
@@ -26,27 +25,24 @@ struct HomeView: View {
                 addTopBar()
                 switch viewModel.selectedTab {
                 case .curiosity:
-                    PhotoListView(viewModel: CuriosityPhotoListViewModel())
+                    PhotoListView(viewModel: viewModel.curiosityViewModel)
                 case .opportunity:
-                    PhotoListView(viewModel: OpportunityPhotoListViewModel())
+                    PhotoListView(viewModel: viewModel.opportunityViewModel)
                 case .spirit:
-                    PhotoListView(viewModel: SpiritPhotoListViewModel())
+                    PhotoListView(viewModel: viewModel.spiritViewModel)
                 }
-                
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: onTapFilter) {
+                    Button(action: viewModel.onTapFilter) {
                         Label("Filter", image: "filter")
+                    }
+                    .popover(isPresented: $viewModel.showFilters) {
+                        FilterView(viewModel: viewModel, isPresenting: $viewModel.showFilters)
                     }
                 }
             }
         }
-        
-    }
-    
-    private func onTapFilter() {
-        print("filter tapped")
     }
 }
 
@@ -58,6 +54,6 @@ extension HomeView {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        HomeView(viewModel: HomeViewModel()).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

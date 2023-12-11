@@ -23,4 +23,5 @@ struct ParameterKeys {
     static let sol = "sol"
     static let apiKey = "api_key"
     static let page = "page"
+    static let camera = "camera"
 }

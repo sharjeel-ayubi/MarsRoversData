@@ -16,8 +16,8 @@ final class SpiritRepository: RepositoryProtocol {
         self.networkService = networkService
     }
     
-    func getPhotos(page: Int) -> AnyPublisher<PhotosResponse, NetworkError> {
-        let request = SpiritPhotosRequest(page: page)
+    func getPhotos(page: Int, filter: String = "") -> AnyPublisher<PhotosResponse, NetworkError> {
+        let request = SpiritPhotosRequest(page: page, filter: filter)
         return networkService.request(request)
     }
 }

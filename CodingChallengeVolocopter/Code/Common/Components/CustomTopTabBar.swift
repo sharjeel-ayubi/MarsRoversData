@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CustomTopTabBar: View {
-    let tabs: [Tabs]
-    @Binding var selectedTab: Tabs
+    let tabs: [RoverVehicle]
+    @Binding var selectedTab: RoverVehicle
     
     var body: some View {
         HStack(spacing: 20) {
@@ -24,7 +24,7 @@ struct CustomTopTabBar: View {
         .border(width: 1, edges: [.bottom], color: Color("MainColor"))
     }
     
-    private func onButtonTapped(tab: Tabs) {
+    private func onButtonTapped(tab: RoverVehicle) {
         selectedTab = tab
     }
 }
@@ -90,6 +90,6 @@ extension View {
 
 struct CustomTopTabBar_Previews: PreviewProvider {
     static var previews: some View {
-        CustomTopTabBar(tabs: Tabs.allCases, selectedTab: .constant(.curiosity))
+        CustomTopTabBar(tabs: RoverVehicle.allCases, selectedTab: .constant(.curiosity))
     }
 }
