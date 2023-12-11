@@ -24,13 +24,35 @@ class PhotoListViewModel: ObservableObject {
     init(repository: RepositoryProtocol) {
         self.repository = repository
     }
-    
+}
+
+//MARK: Helping Methods
+extension PhotoListViewModel {
     func handleOnAppear() {
         guard photos.isEmpty else {return}
         fetchPhotos()
     }
     
-    func fetchAllPhotos(isForceLoading: Bool) {
+    private func updatePhotos() {
+        if selectedFilter != nil {
+            photos = filteredPhotos
+        } else {
+            photos = result
+        }
+    }
+}
+
+//MARK: API Calls to fetch Photos
+extension PhotoListViewModel {
+    func fetchPhotos(isForceLoading: Bool = false) {
+        if let selectedFilter = selectedFilter {
+            fetchFilteredPhotos(isForceLoading: isForceLoading, camera: selectedFilter)
+        } else {
+            fetchAllPhotos(isForceLoading: isForceLoading)
+        }
+    }
+    
+    private func fetchAllPhotos(isForceLoading: Bool) {
         guard !isLoading else { return }
         isLoading = true
         if isForceLoading {
@@ -57,7 +79,7 @@ class PhotoListViewModel: ObservableObject {
         
     }
     
-    func fetchFilteredPhotos(isForceLoading: Bool = false, camera: CameraType) {
+    private func fetchFilteredPhotos(isForceLoading: Bool = false, camera: CameraType) {
         guard !isLoading else { return }
         isLoading = true
         if isForceLoading {
@@ -81,21 +103,5 @@ class PhotoListViewModel: ObservableObject {
                 self.updatePhotos()
             }
             .store(in: &cancellable)
-    }
-    
-    func fetchPhotos(isForceLoading: Bool = false) {
-        if let selectedFilter = selectedFilter {
-            fetchFilteredPhotos(isForceLoading: isForceLoading, camera: selectedFilter)
-        } else {
-            fetchAllPhotos(isForceLoading: isForceLoading)
-        }
-    }
-    
-    func updatePhotos() {
-        if selectedFilter != nil {
-            photos = filteredPhotos
-        } else {
-            photos = result
-        }
     }
 }
