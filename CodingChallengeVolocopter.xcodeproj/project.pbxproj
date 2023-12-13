@@ -48,6 +48,7 @@
 		5393A4902B064CE500BB241F /* RepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393A48F2B064CE500BB241F /* RepositoryProtocol.swift */; };
 		5393A4922B064D5200BB241F /* CuriosityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393A4912B064D5200BB241F /* CuriosityRepository.swift */; };
 		53C5C02E2B275E600088DAD5 /* PhotoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C5C02D2B275E600088DAD5 /* PhotoListViewModel.swift */; };
+		53FB65B12B2A057800513DC9 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB65B02B2A057800513DC9 /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		5393A4912B064D5200BB241F /* CuriosityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuriosityRepository.swift; sourceTree = "<group>"; };
 		5393A4932B08AE8500BB241F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		53C5C02D2B275E600088DAD5 /* PhotoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewModel.swift; sourceTree = "<group>"; };
+		53FB65B02B2A057800513DC9 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +263,7 @@
 		5327CF5C2AFADFF200F6B175 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				53FB65AF2B2A04C500513DC9 /* Notifications */,
 				5393A48E2B064CBC00BB241F /* Repositories */,
 				5327CF5E2AFAE00200F6B175 /* Models */,
 				5327CF5D2AFADFF900F6B175 /* Network */,
@@ -397,6 +400,14 @@
 				5345898C2B234E26009ECEF0 /* SpiritRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		53FB65AF2B2A04C500513DC9 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				53FB65B02B2A057800513DC9 /* NotificationManager.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -551,6 +562,7 @@
 				5393A4872B02975300BB241F /* CuriosityPhotosRequest.swift in Sources */,
 				5327CF6E2AFC3C1400F6B175 /* PhotoListView.swift in Sources */,
 				53C5C02E2B275E600088DAD5 /* PhotoListViewModel.swift in Sources */,
+				53FB65B12B2A057800513DC9 /* NotificationManager.swift in Sources */,
 				5327CF822B0256E100F6B175 /* NetworkConstants.swift in Sources */,
 				5393A4922B064D5200BB241F /* CuriosityRepository.swift in Sources */,
 			);

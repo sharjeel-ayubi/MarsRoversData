@@ -17,6 +17,22 @@ class HomeViewModel: ObservableObject {
     let opportunityViewModel = PhotoListViewModel(repository: OpportunityRepository())
     let spiritViewModel = PhotoListViewModel(repository: SpiritRepository())
     
+    private let notificationManager: NotificationManager = NotificationManager.shared
+    
+    func handleOnAppear() {
+        notificationManager.setTab = { tab in
+            self.selectedTab = tab
+        }
+    }
+    
+    func requestNotificationPermissions() async {
+        try? await notificationManager.requestAuthorization()
+    }
+    
+    func sendNotification() async {
+        await notificationManager.sendNotification()
+    }
+    
     func getCameras() -> [CameraType] {
         return selectedTab.cameras
     }

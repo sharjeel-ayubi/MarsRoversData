@@ -33,15 +33,17 @@ struct HomeView: View {
                 }
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: viewModel.onTapFilter) {
-                        Label("Filter", image: "filter")
-                    }
-                    .popover(isPresented: $viewModel.showFilters) {
-                        FilterView(viewModel: viewModel, isPresenting: $viewModel.showFilters)
-                    }
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    notificationButton()
+                    filterButton()
                 }
             }
+        }
+        .task {
+            await viewModel.requestNotificationPermissions()
+        }
+        .onAppear {
+            viewModel.handleOnAppear()
         }
     }
 }
@@ -49,6 +51,25 @@ struct HomeView: View {
 extension HomeView {
     func addTopBar() -> some View {
         CustomTopTabBar(tabs: viewModel.tabs, selectedTab: $viewModel.selectedTab)
+    }
+    
+    func filterButton() -> some View {
+        Button(action: viewModel.onTapFilter) {
+            Label("Filter", image: "filter")
+        }
+        .popover(isPresented: $viewModel.showFilters) {
+            FilterView(viewModel: viewModel, isPresenting: $viewModel.showFilters)
+        }
+    }
+    
+    func notificationButton() -> some View {
+        Button(action: {
+            Task {
+                await viewModel.sendNotification()
+            }
+        }) {
+            Image(systemName: "bell.fill")
+        }
     }
 }
 
