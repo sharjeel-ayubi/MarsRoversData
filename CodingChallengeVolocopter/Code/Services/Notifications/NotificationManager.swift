@@ -8,6 +8,14 @@
 import Foundation
 import NotificationCenter
 
+protocol NotificationProtocol: ObservableObject {
+    var setTab: ((RoverVehicle) -> Void)? { get set }
+    
+    func requestAuthorization() async throws
+    func getCurrentSettings() async
+    func sendNotification(locationNotification: LocalNotification?) async
+}
+
 struct LocalNotification {
     var id: String
     var title: String
@@ -15,17 +23,19 @@ struct LocalNotification {
     var userInfo: [AnyHashable : Any]?
 }
 
-class NotificationManager: NSObject, ObservableObject {
+class NotificationManager: NSObject, NotificationProtocol {
     static let shared = NotificationManager()
-    let notificationCenter = UNUserNotificationCenter.current()
-    var isGranted = false
     var setTab: ((RoverVehicle) -> Void)?
-    let defaultNotification = LocalNotification(id: UUID().uuidString,
+    
+    private var notificationCenter: UNUserNotificationCenter
+    private var isGranted = false
+    private let defaultNotification = LocalNotification(id: UUID().uuidString,
                                                 title: "RoverImage",
                                                 body: "This is a rover Image",
                                                 userInfo: ["tab":RoverVehicle.spirit.rawValue])
     
     private override init() {
+        notificationCenter = UNUserNotificationCenter.current()
         super.init()
         notificationCenter.delegate = self
     }

@@ -46,7 +46,7 @@ extension SpiritRepository {
     }
     
     private func fetchNetworkPhotos(page: Int, filter: String) -> AnyPublisher<PhotosResponse, AppError> {
-        let request = OpportunityPhotosRequest(page: page, filter: filter)
+        let request = SpiritPhotosRequest(page: page, filter: filter)
         return networkService.request(request)
     }
 }
