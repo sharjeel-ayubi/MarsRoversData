@@ -15,8 +15,9 @@ struct PhotosResponse: Codable {
 }
 
 //MARK: - Photo
-struct Photo: Codable, Identifiable {
-    let id, sol: Int
+struct Photo: Codable, Persistable {
+    var id: Int
+    let sol: Int
     let camera: PhotoCamera
     let imgSrc: String
     let earthDate: String
@@ -31,8 +32,8 @@ struct Photo: Codable, Identifiable {
 }
 
 //MARK: - PhotoCamera
-struct PhotoCamera: Codable {
-    let id: Int
+struct PhotoCamera: Codable, Persistable {
+    var id: Int
     let name: String
     let roverID: Int
     let fullName: String
@@ -45,32 +46,13 @@ struct PhotoCamera: Codable {
 }
 
 //MARK: - Rover
-struct Rover: Codable {
-    let id: Int
-    let name, landingDate, launchDate, status: String
-    let maxSol: Int
-    let maxDate: String
-    let totalPhotos: Int
-    let cameras: [CameraElement]
+struct Rover: Codable, Persistable {
+    var id: Int
+    let name, landingDate, launchDate: String
 
     enum CodingKeys: String, CodingKey {
         case id, name
         case landingDate = "landing_date"
         case launchDate = "launch_date"
-        case status
-        case maxSol = "max_sol"
-        case maxDate = "max_date"
-        case totalPhotos = "total_photos"
-        case cameras
-    }
-}
-
-//MARK: - CameraElement
-struct CameraElement: Codable {
-    let name, fullName: String
-
-    enum CodingKeys: String, CodingKey {
-        case name
-        case fullName = "full_name"
     }
 }

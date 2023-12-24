@@ -53,7 +53,7 @@ extension FilterView {
             Spacer()
             Button("Apply", action: {
                 isPresenting = false
-                viewModel.getPhotoListViewModel().fetchPhotos(isForceLoading: true)
+                viewModel.getPhotoListViewModel().fetchPhotos(isRefereshing: true)
             })
             .bold()
             .buttonStyle(.borderedProminent)

@@ -15,7 +15,7 @@ class PhotoListViewModel: ObservableObject {
     @Published var photos: [Photo] = []
     var filteredPhotos: [Photo] = []
     var result: [Photo] = []
-    @Published var error: NetworkError?
+    @Published var error: AppError?
     @Published var selectedFilter: CameraType?
     
     var repository: RepositoryProtocol
@@ -44,18 +44,18 @@ extension PhotoListViewModel {
 
 //MARK: API Calls to fetch Photos
 extension PhotoListViewModel {
-    func fetchPhotos(isForceLoading: Bool = false) {
+    func fetchPhotos(isRefereshing: Bool = false) {
         if let selectedFilter = selectedFilter {
-            fetchFilteredPhotos(isForceLoading: isForceLoading, camera: selectedFilter)
+            fetchFilteredPhotos(isRefereshing: isRefereshing, camera: selectedFilter)
         } else {
-            fetchAllPhotos(isForceLoading: isForceLoading)
+            fetchAllPhotos(isRefereshing: isRefereshing)
         }
     }
     
-    private func fetchAllPhotos(isForceLoading: Bool) {
+    private func fetchAllPhotos(isRefereshing: Bool) {
         guard !isLoading else { return }
         isLoading = true
-        if isForceLoading {
+        if isRefereshing {
             result.removeAll()
             page = 0
         }
@@ -72,17 +72,17 @@ extension PhotoListViewModel {
                     self.isLoading = false
                 }
             } receiveValue: { (response) in
-                self.result.append(contentsOf: response.photos)
+                self.result.append(contentsOf: response)
                 self.updatePhotos()
             }
             .store(in: &cancellable)
         
     }
     
-    private func fetchFilteredPhotos(isForceLoading: Bool = false, camera: CameraType) {
+    private func fetchFilteredPhotos(isRefereshing: Bool = false, camera: CameraType) {
         guard !isLoading else { return }
         isLoading = true
-        if isForceLoading {
+        if isRefereshing {
             filteredPhotos.removeAll()
             filteredPage = 0
         }
@@ -99,7 +99,7 @@ extension PhotoListViewModel {
                     self.isLoading = false
                 }
             } receiveValue: { (response) in
-                self.filteredPhotos.append(contentsOf: response.photos)
+                self.filteredPhotos.append(contentsOf: response)
                 self.updatePhotos()
             }
             .store(in: &cancellable)

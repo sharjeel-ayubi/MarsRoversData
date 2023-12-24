@@ -9,12 +9,20 @@ import SwiftUI
 
 @main
 struct CodingChallengeVolocopterApp: App {
-    let persistenceController = PersistenceController.shared
+    let coreDataPersistence = CoreDataPersistence.shared
 
+    init() {
+        let cache = URLCache(
+            memoryCapacity: 4 * 1024 * 1024,  // 4 MB
+            diskCapacity: 500 * 1024 * 1024,   // 500 MB
+            diskPath: "volocopter_cache"
+        )
+        URLCache.shared = cache
+    }
     var body: some Scene {
         WindowGroup {
             HomeView(viewModel: HomeViewModel())
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environment(\.managedObjectContext, coreDataPersistence.persistentContainer.viewContext)
         }
     }
 }

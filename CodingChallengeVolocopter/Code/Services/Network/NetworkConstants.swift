@@ -17,6 +17,7 @@ struct PhotosAPI: API {
     static var scheme = "https"
     static var url = "api.nasa.gov/mars-photos/api/v1/rovers"
     static var apiKey = "X3KZLq14eaMI5PlIerYO7y6XT6pvCPAgsWw9bysq"
+    static let pageSize = 25
 }
 
 struct ParameterKeys {

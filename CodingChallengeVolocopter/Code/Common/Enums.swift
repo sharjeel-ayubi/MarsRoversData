@@ -83,7 +83,7 @@ enum HTTPMethod: String {
     case delete = "DELETE"
 }
 
-public enum NetworkError: Error, Equatable {
+enum AppError: Error, Equatable {
     case badURL(_ error: String)
     case apiError(code: Int, error: String)
     case invalidJSON(_ error: String)
@@ -93,4 +93,8 @@ public enum NetworkError: Error, Equatable {
     case noResponse(_ error: String)
     case unableToParseData(_ error: String)
     case unknown(code: Int, error: String)
+    case readError(_ error: String)
+    case writeError(_ error: String)
+    case deleteError(_ error: String)
+    case inconsistentState
 }

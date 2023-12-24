@@ -9,5 +9,5 @@ import Foundation
 import Combine
 
 protocol RepositoryProtocol {
-    func getPhotos(page: Int, filter: String) -> AnyPublisher<PhotosResponse, NetworkError>
+    func getPhotos(page: Int, filter: String) -> AnyPublisher<[Photo], AppError>
 }

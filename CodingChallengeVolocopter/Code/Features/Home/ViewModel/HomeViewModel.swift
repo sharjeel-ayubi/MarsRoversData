@@ -20,6 +20,7 @@ class HomeViewModel: ObservableObject {
     private let notificationManager: NotificationManager = NotificationManager.shared
     
     func handleOnAppear() {
+        NetworkMonitor.shared.startMonitoring()
         notificationManager.setTab = { tab in
             self.selectedTab = tab
         }

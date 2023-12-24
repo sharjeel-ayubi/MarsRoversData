@@ -33,7 +33,7 @@ struct PhotoListView: View {
             }
         }
         .refreshable {
-            viewModel.fetchPhotos(isForceLoading: true)
+            viewModel.fetchPhotos(isRefereshing: true)
         }
     }
 }
@@ -41,12 +41,10 @@ struct PhotoListView: View {
 extension PhotoListView {
     func generatePhotoListView() -> some View {
         ForEach(viewModel.photos, id: \.id) { photo in
-            AsyncImage(url: URL(string:photo.imgSrc)) { image in
+            CachedImage(url: photo.imgSrc) { image in
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-            } placeholder: {
-                ProgressView()
             }
             .frame(height: (cellDimension))
             .onAppear {

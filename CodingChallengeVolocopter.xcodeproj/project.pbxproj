@@ -34,6 +34,13 @@
 		5327CF822B0256E100F6B175 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5327CF812B0256E100F6B175 /* NetworkConstants.swift */; };
 		5327CF832B0256E100F6B175 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5327CF812B0256E100F6B175 /* NetworkConstants.swift */; };
 		5327CF842B0256E100F6B175 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5327CF812B0256E100F6B175 /* NetworkConstants.swift */; };
+		532CCB6C2B34E04000AB574D /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532CCB6B2B34E04000AB574D /* NetworkMonitor.swift */; };
+		532CCB732B35051E00AB574D /* PhotoEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532CCB6D2B35051E00AB574D /* PhotoEntity+CoreDataClass.swift */; };
+		532CCB742B35051E00AB574D /* PhotoEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532CCB6E2B35051E00AB574D /* PhotoEntity+CoreDataProperties.swift */; };
+		532CCB752B35051E00AB574D /* RoverEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532CCB6F2B35051E00AB574D /* RoverEntity+CoreDataClass.swift */; };
+		532CCB762B35051E00AB574D /* RoverEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532CCB702B35051E00AB574D /* RoverEntity+CoreDataProperties.swift */; };
+		532CCB772B35051E00AB574D /* PhotoCameraEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532CCB712B35051E00AB574D /* PhotoCameraEntity+CoreDataClass.swift */; };
+		532CCB782B35051E00AB574D /* PhotoCameraEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532CCB722B35051E00AB574D /* PhotoCameraEntity+CoreDataProperties.swift */; };
 		5345898B2B234E04009ECEF0 /* OpportunityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5345898A2B234E04009ECEF0 /* OpportunityRepository.swift */; };
 		5345898D2B234E26009ECEF0 /* SpiritRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5345898C2B234E26009ECEF0 /* SpiritRepository.swift */; };
 		5345899A2B24752D009ECEF0 /* PhotoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534589992B24752D009ECEF0 /* PhotoDetailView.swift */; };
@@ -49,6 +56,12 @@
 		5393A4922B064D5200BB241F /* CuriosityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393A4912B064D5200BB241F /* CuriosityRepository.swift */; };
 		53C5C02E2B275E600088DAD5 /* PhotoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C5C02D2B275E600088DAD5 /* PhotoListViewModel.swift */; };
 		53FB65B12B2A057800513DC9 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB65B02B2A057800513DC9 /* NotificationManager.swift */; };
+		53FB65B62B2E515200513DC9 /* CachedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB65B52B2E515200513DC9 /* CachedImage.swift */; };
+		53FB65C32B30F8E200513DC9 /* CoreDataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB65C22B30F8E200513DC9 /* CoreDataDAO.swift */; };
+		53FB65C52B30FA0500513DC9 /* Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB65C42B30FA0500513DC9 /* Persistable.swift */; };
+		53FB65C72B3100CD00513DC9 /* BaseDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB65C62B3100CD00513DC9 /* BaseDAO.swift */; };
+		53FB65C92B31021700513DC9 /* PhotoDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB65C82B31021700513DC9 /* PhotoDAO.swift */; };
+		53FB65DC2B310D8600513DC9 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB65DB2B310D8600513DC9 /* Mapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +100,13 @@
 		5327CF752AFC4A5F00F6B175 /* CustomTopTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTopTabBar.swift; sourceTree = "<group>"; };
 		5327CF7D2B005DAF00F6B175 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		5327CF812B0256E100F6B175 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		532CCB6B2B34E04000AB574D /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		532CCB6D2B35051E00AB574D /* PhotoEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		532CCB6E2B35051E00AB574D /* PhotoEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		532CCB6F2B35051E00AB574D /* RoverEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoverEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		532CCB702B35051E00AB574D /* RoverEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoverEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		532CCB712B35051E00AB574D /* PhotoCameraEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoCameraEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		532CCB722B35051E00AB574D /* PhotoCameraEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoCameraEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5345898A2B234E04009ECEF0 /* OpportunityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunityRepository.swift; sourceTree = "<group>"; };
 		5345898C2B234E26009ECEF0 /* SpiritRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpiritRepository.swift; sourceTree = "<group>"; };
 		534589992B24752D009ECEF0 /* PhotoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailView.swift; sourceTree = "<group>"; };
@@ -103,6 +123,12 @@
 		5393A4932B08AE8500BB241F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		53C5C02D2B275E600088DAD5 /* PhotoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewModel.swift; sourceTree = "<group>"; };
 		53FB65B02B2A057800513DC9 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		53FB65B52B2E515200513DC9 /* CachedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImage.swift; sourceTree = "<group>"; };
+		53FB65C22B30F8E200513DC9 /* CoreDataDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDAO.swift; sourceTree = "<group>"; };
+		53FB65C42B30FA0500513DC9 /* Persistable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistable.swift; sourceTree = "<group>"; };
+		53FB65C62B3100CD00513DC9 /* BaseDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDAO.swift; sourceTree = "<group>"; };
+		53FB65C82B31021700513DC9 /* PhotoDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDAO.swift; sourceTree = "<group>"; };
+		53FB65DB2B310D8600513DC9 /* Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +271,7 @@
 		5327CF5A2AFADFD700F6B175 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				53FB65B22B2E50E100513DC9 /* Helpers */,
 				5327CF5B2AFADFE100F6B175 /* Components */,
 				5327CF662AFC1A3900F6B175 /* Enums.swift */,
 			);
@@ -254,6 +281,7 @@
 		5327CF5B2AFADFE100F6B175 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				53FB65B52B2E515200513DC9 /* CachedImage.swift */,
 				5327CF752AFC4A5F00F6B175 /* CustomTopTabBar.swift */,
 				534589AD2B26AD45009ECEF0 /* RadioButton.swift */,
 			);
@@ -263,9 +291,9 @@
 		5327CF5C2AFADFF200F6B175 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				53FB65BD2B3091E900513DC9 /* CoreData */,
 				53FB65AF2B2A04C500513DC9 /* Notifications */,
 				5393A48E2B064CBC00BB241F /* Repositories */,
-				5327CF5E2AFAE00200F6B175 /* Models */,
 				5327CF5D2AFADFF900F6B175 /* Network */,
 			);
 			path = Services;
@@ -274,6 +302,7 @@
 		5327CF5D2AFADFF900F6B175 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				5327CF5E2AFAE00200F6B175 /* Models */,
 				5327CF5F2AFAE00900F6B175 /* Requests */,
 				5327CF7D2B005DAF00F6B175 /* NetworkService.swift */,
 				5327CF812B0256E100F6B175 /* NetworkConstants.swift */,
@@ -303,7 +332,6 @@
 		5327CF602AFAE0A500F6B175 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				5327CF632AFB9F8C00F6B175 /* Persistence */,
 				5327CF212AFA4BBE00F6B175 /* CodingChallengeVolocopterApp.swift */,
 			);
 			path = SupportingFiles;
@@ -330,6 +358,7 @@
 			children = (
 				5327CF2A2AFA4BBF00F6B175 /* Persistence.swift */,
 				5327CF2C2AFA4BBF00F6B175 /* CodingChallengeVolocopter.xcdatamodeld */,
+				53FB65C42B30FA0500513DC9 /* Persistable.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -408,6 +437,56 @@
 				53FB65B02B2A057800513DC9 /* NotificationManager.swift */,
 			);
 			path = Notifications;
+			sourceTree = "<group>";
+		};
+		53FB65B22B2E50E100513DC9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				532CCB6B2B34E04000AB574D /* NetworkMonitor.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		53FB65BD2B3091E900513DC9 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				53FB65DA2B310D7500513DC9 /* Mapper */,
+				53FB65C12B30F2D300513DC9 /* DataAccessObjects */,
+				5327CF632AFB9F8C00F6B175 /* Persistence */,
+				53FB65BE2B30A11000513DC9 /* Models */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		53FB65BE2B30A11000513DC9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				532CCB6D2B35051E00AB574D /* PhotoEntity+CoreDataClass.swift */,
+				532CCB6E2B35051E00AB574D /* PhotoEntity+CoreDataProperties.swift */,
+				532CCB6F2B35051E00AB574D /* RoverEntity+CoreDataClass.swift */,
+				532CCB702B35051E00AB574D /* RoverEntity+CoreDataProperties.swift */,
+				532CCB712B35051E00AB574D /* PhotoCameraEntity+CoreDataClass.swift */,
+				532CCB722B35051E00AB574D /* PhotoCameraEntity+CoreDataProperties.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		53FB65C12B30F2D300513DC9 /* DataAccessObjects */ = {
+			isa = PBXGroup;
+			children = (
+				53FB65C22B30F8E200513DC9 /* CoreDataDAO.swift */,
+				53FB65C62B3100CD00513DC9 /* BaseDAO.swift */,
+				53FB65C82B31021700513DC9 /* PhotoDAO.swift */,
+			);
+			path = DataAccessObjects;
+			sourceTree = "<group>";
+		};
+		53FB65DA2B310D7500513DC9 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				53FB65DB2B310D8600513DC9 /* Mapper.swift */,
+			);
+			path = Mapper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -543,28 +622,41 @@
 				5345898D2B234E26009ECEF0 /* SpiritRepository.swift in Sources */,
 				5345899A2B24752D009ECEF0 /* PhotoDetailView.swift in Sources */,
 				5393A4902B064CE500BB241F /* RepositoryProtocol.swift in Sources */,
+				532CCB782B35051E00AB574D /* PhotoCameraEntity+CoreDataProperties.swift in Sources */,
+				53FB65C92B31021700513DC9 /* PhotoDAO.swift in Sources */,
 				534589A02B251752009ECEF0 /* DataRequest.swift in Sources */,
 				5327CF7E2B005DAF00F6B175 /* NetworkService.swift in Sources */,
 				5327CF2B2AFA4BBF00F6B175 /* Persistence.swift in Sources */,
 				5327CF242AFA4BBE00F6B175 /* HomeView.swift in Sources */,
+				532CCB752B35051E00AB574D /* RoverEntity+CoreDataClass.swift in Sources */,
+				532CCB732B35051E00AB574D /* PhotoEntity+CoreDataClass.swift in Sources */,
 				534589AC2B25D6E5009ECEF0 /* FilterViewModel.swift in Sources */,
 				534589AE2B26AD45009ECEF0 /* RadioButton.swift in Sources */,
 				534589A82B25D68F009ECEF0 /* FilterView.swift in Sources */,
+				53FB65C52B30FA0500513DC9 /* Persistable.swift in Sources */,
 				5393A4892B0297E600BB241F /* OpportunityPhotosRequest.swift in Sources */,
 				5393A48B2B02982900BB241F /* SpiritPhotosRequest.swift in Sources */,
 				5327CF762AFC4A5F00F6B175 /* CustomTopTabBar.swift in Sources */,
+				53FB65DC2B310D8600513DC9 /* Mapper.swift in Sources */,
 				5345898B2B234E04009ECEF0 /* OpportunityRepository.swift in Sources */,
+				53FB65C32B30F8E200513DC9 /* CoreDataDAO.swift in Sources */,
 				5327CF722AFC3CE600F6B175 /* HomeViewModel.swift in Sources */,
 				5327CF672AFC1A3900F6B175 /* Enums.swift in Sources */,
 				5327CF2E2AFA4BBF00F6B175 /* CodingChallengeVolocopter.xcdatamodeld in Sources */,
+				53FB65C72B3100CD00513DC9 /* BaseDAO.swift in Sources */,
+				532CCB6C2B34E04000AB574D /* NetworkMonitor.swift in Sources */,
 				5327CF222AFA4BBE00F6B175 /* CodingChallengeVolocopterApp.swift in Sources */,
 				5393A4852B0292DF00BB241F /* PhotosResponse.swift in Sources */,
+				532CCB742B35051E00AB574D /* PhotoEntity+CoreDataProperties.swift in Sources */,
 				5393A4872B02975300BB241F /* CuriosityPhotosRequest.swift in Sources */,
 				5327CF6E2AFC3C1400F6B175 /* PhotoListView.swift in Sources */,
 				53C5C02E2B275E600088DAD5 /* PhotoListViewModel.swift in Sources */,
+				53FB65B62B2E515200513DC9 /* CachedImage.swift in Sources */,
 				53FB65B12B2A057800513DC9 /* NotificationManager.swift in Sources */,
 				5327CF822B0256E100F6B175 /* NetworkConstants.swift in Sources */,
 				5393A4922B064D5200BB241F /* CuriosityRepository.swift in Sources */,
+				532CCB772B35051E00AB574D /* PhotoCameraEntity+CoreDataClass.swift in Sources */,
+				532CCB762B35051E00AB574D /* RoverEntity+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
