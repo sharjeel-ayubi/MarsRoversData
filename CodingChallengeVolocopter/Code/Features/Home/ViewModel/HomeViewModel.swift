@@ -17,7 +17,11 @@ class HomeViewModel: ObservableObject {
     let opportunityViewModel = PhotoListViewModel(repository: OpportunityRepository())
     let spiritViewModel = PhotoListViewModel(repository: SpiritRepository())
     
-    private let notificationManager: NotificationManager = NotificationManager.shared
+    private let notificationManager: any NotificationProtocol
+    
+    init(notificationManager: any NotificationProtocol = NotificationManager.shared) {
+        self.notificationManager = notificationManager
+    }
     
     func handleOnAppear() {
         NetworkMonitor.shared.startMonitoring()
@@ -31,7 +35,7 @@ class HomeViewModel: ObservableObject {
     }
     
     func sendNotification() async {
-        await notificationManager.sendNotification()
+        await notificationManager.sendNotification(locationNotification: nil)
     }
     
     func getCameras() -> [CameraType] {

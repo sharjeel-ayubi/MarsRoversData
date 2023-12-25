@@ -1,0 +1,32 @@
+{
+  "configurations" : [
+    {
+      "id" : "6F4BD27F-D52D-484F-AA28-398753A8C5B3",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:CodingChallengeVolocopter.xcodeproj",
+        "identifier" : "5327CF322AFA4BBF00F6B175",
+        "name" : "CodingChallengeVolocopterTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "target" : {
+        "containerPath" : "container:CodingChallengeVolocopter.xcodeproj",
+        "identifier" : "5327CF3C2AFA4BBF00F6B175",
+        "name" : "CodingChallengeVolocopterUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

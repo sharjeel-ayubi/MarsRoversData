@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol DataRequest {
     associatedtype Response
@@ -41,7 +42,7 @@ extension DataRequest {
         }
         urlComponent.queryItems = queryItems
         
-        guard let url = urlComponent.url else {
+        guard let url = urlComponent.url, UIApplication.shared.canOpenURL(url) else {
             return nil
         }
         
