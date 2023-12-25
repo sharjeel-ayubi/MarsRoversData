@@ -116,6 +116,9 @@
 		534589A82B25D68F009ECEF0 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534589A72B25D68F009ECEF0 /* FilterView.swift */; };
 		534589AC2B25D6E5009ECEF0 /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534589AB2B25D6E5009ECEF0 /* FilterViewModel.swift */; };
 		534589AE2B26AD45009ECEF0 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534589AD2B26AD45009ECEF0 /* RadioButton.swift */; };
+		537093882B3A2AD00033B585 /* ErrorHandlerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537093872B3A2AD00033B585 /* ErrorHandlerView.swift */; };
+		5370938A2B3A2C8C0033B585 /* AppErrorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537093892B3A2C8C0033B585 /* AppErrorProtocol.swift */; };
+		5370938D2B3A30290033B585 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5370938C2B3A30290033B585 /* LoaderView.swift */; };
 		5393A4852B0292DF00BB241F /* PhotosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393A4842B0292DF00BB241F /* PhotosResponse.swift */; };
 		5393A4872B02975300BB241F /* CuriosityPhotosRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393A4862B02975300BB241F /* CuriosityPhotosRequest.swift */; };
 		5393A4892B0297E600BB241F /* OpportunityPhotosRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393A4882B0297E600BB241F /* OpportunityPhotosRequest.swift */; };
@@ -123,6 +126,12 @@
 		5393A4902B064CE500BB241F /* RepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393A48F2B064CE500BB241F /* RepositoryProtocol.swift */; };
 		5393A4922B064D5200BB241F /* CuriosityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393A4912B064D5200BB241F /* CuriosityRepository.swift */; };
 		53C5C02E2B275E600088DAD5 /* PhotoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C5C02D2B275E600088DAD5 /* PhotoListViewModel.swift */; };
+		53F7E8932B3A3C4300C36BA1 /* AppErrorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537093892B3A2C8C0033B585 /* AppErrorProtocol.swift */; };
+		53F7E8942B3A3C4400C36BA1 /* AppErrorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537093892B3A2C8C0033B585 /* AppErrorProtocol.swift */; };
+		53F7E8952B3A3C4D00C36BA1 /* ErrorHandlerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537093872B3A2AD00033B585 /* ErrorHandlerView.swift */; };
+		53F7E8962B3A3C4D00C36BA1 /* ErrorHandlerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537093872B3A2AD00033B585 /* ErrorHandlerView.swift */; };
+		53F7E8972B3A3C5000C36BA1 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5370938C2B3A30290033B585 /* LoaderView.swift */; };
+		53F7E8982B3A3C5000C36BA1 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5370938C2B3A30290033B585 /* LoaderView.swift */; };
 		53FB65B12B2A057800513DC9 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB65B02B2A057800513DC9 /* NotificationManager.swift */; };
 		53FB65B62B2E515200513DC9 /* CachedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB65B52B2E515200513DC9 /* CachedImage.swift */; };
 		53FB65C32B30F8E200513DC9 /* CoreDataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB65C22B30F8E200513DC9 /* CoreDataDAO.swift */; };
@@ -193,6 +202,9 @@
 		534589A72B25D68F009ECEF0 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		534589AB2B25D6E5009ECEF0 /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
 		534589AD2B26AD45009ECEF0 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		537093872B3A2AD00033B585 /* ErrorHandlerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlerView.swift; sourceTree = "<group>"; };
+		537093892B3A2C8C0033B585 /* AppErrorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrorProtocol.swift; sourceTree = "<group>"; };
+		5370938C2B3A30290033B585 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		5393A4842B0292DF00BB241F /* PhotosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosResponse.swift; sourceTree = "<group>"; };
 		5393A4862B02975300BB241F /* CuriosityPhotosRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuriosityPhotosRequest.swift; sourceTree = "<group>"; };
 		5393A4882B0297E600BB241F /* OpportunityPhotosRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunityPhotosRequest.swift; sourceTree = "<group>"; };
@@ -379,6 +391,8 @@
 				5309C8932B3A0E9200C381B9 /* ImageCache */,
 				5327CF752AFC4A5F00F6B175 /* CustomTopTabBar.swift */,
 				534589AD2B26AD45009ECEF0 /* RadioButton.swift */,
+				537093872B3A2AD00033B585 /* ErrorHandlerView.swift */,
+				5370938C2B3A30290033B585 /* LoaderView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -534,6 +548,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		5370938B2B3A2CA20033B585 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				537093892B3A2C8C0033B585 /* AppErrorProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		5393A48E2B064CBC00BB241F /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
@@ -556,6 +578,7 @@
 		53FB65B22B2E50E100513DC9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				5370938B2B3A2CA20033B585 /* Protocol */,
 				532CCB6B2B34E04000AB574D /* NetworkMonitor.swift */,
 			);
 			path = Helpers;
@@ -737,6 +760,7 @@
 				5345899A2B24752D009ECEF0 /* PhotoDetailView.swift in Sources */,
 				5393A4902B064CE500BB241F /* RepositoryProtocol.swift in Sources */,
 				532CCB782B35051E00AB574D /* PhotoCameraEntity+CoreDataProperties.swift in Sources */,
+				537093882B3A2AD00033B585 /* ErrorHandlerView.swift in Sources */,
 				53FB65C92B31021700513DC9 /* PhotoDAO.swift in Sources */,
 				534589A02B251752009ECEF0 /* DataRequest.swift in Sources */,
 				5327CF7E2B005DAF00F6B175 /* NetworkService.swift in Sources */,
@@ -749,6 +773,7 @@
 				534589AE2B26AD45009ECEF0 /* RadioButton.swift in Sources */,
 				534589A82B25D68F009ECEF0 /* FilterView.swift in Sources */,
 				53FB65C52B30FA0500513DC9 /* Persistable.swift in Sources */,
+				5370938D2B3A30290033B585 /* LoaderView.swift in Sources */,
 				5393A4892B0297E600BB241F /* OpportunityPhotosRequest.swift in Sources */,
 				5393A48B2B02982900BB241F /* SpiritPhotosRequest.swift in Sources */,
 				5327CF762AFC4A5F00F6B175 /* CustomTopTabBar.swift in Sources */,
@@ -763,6 +788,7 @@
 				5327CF222AFA4BBE00F6B175 /* CodingChallengeVolocopterApp.swift in Sources */,
 				5393A4852B0292DF00BB241F /* PhotosResponse.swift in Sources */,
 				532CCB742B35051E00AB574D /* PhotoEntity+CoreDataProperties.swift in Sources */,
+				5370938A2B3A2C8C0033B585 /* AppErrorProtocol.swift in Sources */,
 				5393A4872B02975300BB241F /* CuriosityPhotosRequest.swift in Sources */,
 				5327CF6E2AFC3C1400F6B175 /* PhotoListView.swift in Sources */,
 				53C5C02E2B275E600088DAD5 /* PhotoListViewModel.swift in Sources */,
@@ -780,6 +806,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5327CF832B0256E100F6B175 /* NetworkConstants.swift in Sources */,
+				53F7E8952B3A3C4D00C36BA1 /* ErrorHandlerView.swift in Sources */,
 				532CCB942B38C0D800AB574D /* OpportunityRepository.swift in Sources */,
 				5327CF7F2B005DAF00F6B175 /* NetworkService.swift in Sources */,
 				5309C8972B3A208500C381B9 /* CachedImageViewModelTests.swift in Sources */,
@@ -803,9 +830,11 @@
 				5327CF6F2AFC3C1400F6B175 /* PhotoListView.swift in Sources */,
 				5327CF732AFC3CE600F6B175 /* HomeViewModel.swift in Sources */,
 				532CCB922B38C0D800AB574D /* SpiritRepository.swift in Sources */,
+				53F7E8932B3A3C4300C36BA1 /* AppErrorProtocol.swift in Sources */,
 				532CCBA42B38C10500AB574D /* PhotoCameraEntity+CoreDataProperties.swift in Sources */,
 				532CCBB42B38C12500AB574D /* CachedImage.swift in Sources */,
 				532CCBC02B38E71100AB574D /* NetworkServiceTests.swift in Sources */,
+				53F7E8972B3A3C5000C36BA1 /* LoaderView.swift in Sources */,
 				532CCB852B38C0A100AB574D /* CoreDataDAO.swift in Sources */,
 				532CCB7C2B389F5E00AB574D /* NetworkMonitor.swift in Sources */,
 				532CCBB52B38C12500AB574D /* RadioButton.swift in Sources */,
@@ -848,7 +877,9 @@
 				532CCBB82B38C12700AB574D /* CustomTopTabBar.swift in Sources */,
 				5327CF442AFA4BBF00F6B175 /* CodingChallengeVolocopterUITestsLaunchTests.swift in Sources */,
 				532CCB992B38C0DC00AB574D /* RepositoryProtocol.swift in Sources */,
+				53F7E8962B3A3C4D00C36BA1 /* ErrorHandlerView.swift in Sources */,
 				5327CF802B005DAF00F6B175 /* NetworkService.swift in Sources */,
+				53F7E8942B3A3C4400C36BA1 /* AppErrorProtocol.swift in Sources */,
 				532CCB822B38C09100AB574D /* PhotoListViewModel.swift in Sources */,
 				532CCB912B38C0D100AB574D /* PhotosResponse.swift in Sources */,
 				532CCBB92B38C12700AB574D /* CachedImage.swift in Sources */,
@@ -866,6 +897,7 @@
 				5309C8992B3A20CA00C381B9 /* CachedImageViewModel.swift in Sources */,
 				532CCB952B38C0D900AB574D /* SpiritRepository.swift in Sources */,
 				5327CF702AFC3C1400F6B175 /* PhotoListView.swift in Sources */,
+				53F7E8982B3A3C5000C36BA1 /* LoaderView.swift in Sources */,
 				5327CF842B0256E100F6B175 /* NetworkConstants.swift in Sources */,
 				532CCB9F2B38C0F400AB574D /* BaseDAO.swift in Sources */,
 			);

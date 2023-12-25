@@ -18,14 +18,6 @@
         "identifier" : "5327CF322AFA4BBF00F6B175",
         "name" : "CodingChallengeVolocopterTests"
       }
-    },
-    {
-      "enabled" : false,
-      "target" : {
-        "containerPath" : "container:CodingChallengeVolocopter.xcodeproj",
-        "identifier" : "5327CF3C2AFA4BBF00F6B175",
-        "name" : "CodingChallengeVolocopterUITests"
-      }
     }
   ],
   "version" : 1

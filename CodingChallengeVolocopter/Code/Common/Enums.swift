@@ -5,6 +5,8 @@
 //  Created by Sharjeel Ayubi on 09/11/2023.
 //
 
+import Foundation
+
 //MARK: - Rover Enums
 enum CameraType: String, CaseIterable {
     case FHAZ
@@ -83,7 +85,10 @@ enum HTTPMethod: String {
     case delete = "DELETE"
 }
 
-enum AppError: Error, Equatable {
+enum AppError: Error, Equatable, AppErrorProtocol {
+    //just to make it identifiable
+    var id: String { UUID().uuidString }
+    
     case badURL(_ error: String)
     case apiError(code: Int, error: String)
     case invalidJSON(_ error: String)
@@ -97,4 +102,42 @@ enum AppError: Error, Equatable {
     case writeError(_ error: String)
     case deleteError(_ error: String)
     case inconsistentState
+    
+    var title: String {
+        switch self {
+        default:
+            return "Error"
+        }
+    }
+
+    var errorDescription: String {
+        switch self {
+        case .badURL(let error):
+            return error
+        case .apiError(_, let error):
+            return error
+        case .invalidJSON(let error):
+            return error
+        case .unauthorized(_, let error):
+            return error
+        case .badRequest(_, let error):
+            return error
+        case .serverError(_, let error):
+            return error
+        case .noResponse(let error):
+            return error
+        case .unableToParseData(let error):
+            return error
+        case .unknown(_, let error):
+            return error
+        case .readError(let error):
+            return error
+        case .writeError(let error):
+            return error
+        case .deleteError(let error):
+            return error
+        case .inconsistentState:
+            return "Something went wrong"
+        }
+    }
 }

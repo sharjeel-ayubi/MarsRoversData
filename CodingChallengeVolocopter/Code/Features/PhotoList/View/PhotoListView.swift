@@ -35,6 +35,9 @@ struct PhotoListView: View {
         .refreshable {
             viewModel.fetchPhotos(isRefereshing: true)
         }
+        .loader(isLoading: viewModel.isLoading)
+        .withErrorHandling(error: $viewModel.error)
+        
     }
 }
 
