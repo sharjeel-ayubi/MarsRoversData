@@ -54,13 +54,12 @@ extension PhotoListViewModel {
     
     private func fetchAllPhotos(isRefereshing: Bool) {
         guard !isLoading else { return }
-        isLoading = true
         if isRefereshing {
             result.removeAll()
             page = 0
         }
         page += 1
-        
+        isLoading = page == 1
         repository.getPhotos(page: page, filter: "")
             .receive(on: DispatchQueue.main)
             .sink { (completion) in
@@ -81,13 +80,12 @@ extension PhotoListViewModel {
     
     private func fetchFilteredPhotos(isRefereshing: Bool = false, camera: CameraType) {
         guard !isLoading else { return }
-        isLoading = true
         if isRefereshing {
             filteredPhotos.removeAll()
             filteredPage = 0
         }
         filteredPage += 1
-        
+        isLoading = filteredPage == 1
         repository.getPhotos(page: filteredPage, filter: camera.rawValue)
             .receive(on: DispatchQueue.main)
             .sink { (completion) in
