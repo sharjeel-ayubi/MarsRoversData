@@ -58,11 +58,12 @@ extension PhotoListView {
             }
             .onTapGesture {
                 selectedPhoto = photo
+                viewModel.deleteSeletectedPhoto(photo: photo)
             }
-            .sheet(item: $selectedPhoto) { photo in
-                PhotoDetailView(photo: photo)
-                    .presentationDragIndicator(.visible)
-            }
+//            .sheet(item: $selectedPhoto) { photo in
+//                PhotoDetailView(photo: photo)
+//                    .presentationDragIndicator(.visible)
+//            }
         }
     }
 }

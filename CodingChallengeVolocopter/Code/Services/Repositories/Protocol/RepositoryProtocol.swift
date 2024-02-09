@@ -10,4 +10,5 @@ import Combine
 
 protocol RepositoryProtocol {
     func getPhotos(page: Int, filter: String) -> AnyPublisher<[Photo], AppError>
+    func deletePhoto(photo: Photo)
 }

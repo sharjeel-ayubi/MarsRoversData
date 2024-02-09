@@ -37,6 +37,9 @@ final class OpportunityRepository: RepositoryProtocol {
             return self.fetchPersistencePhotos(with: filter, page: page)
         }
     }
+    func deletePhoto(photo: Photo) {
+        self.delete(photo: photo)
+    }
 }
 
 //MARK: Fetch Methods

@@ -102,4 +102,11 @@ extension PhotoListViewModel {
             }
             .store(in: &cancellable)
     }
+    
+    func deleteSeletectedPhoto(photo: Photo) {
+        repository.deletePhoto(photo: photo)
+        photos.removeAll(where: { currentPhoto in
+            return currentPhoto.id == photo.id
+        })
+    }
 }
